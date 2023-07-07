@@ -1,0 +1,8 @@
+{{- include "ffc-helm-library.deployment" (list . "ffc-tcg-portal.deployment") -}}
+{{- define "ffc-tcg-portal.deployment" -}}
+spec:
+  template:
+    spec:
+      containers:
+      - {{ include "ffc-helm-library.container" (list . "ffc-tcg-portal.container") }}
+{{- end -}}
