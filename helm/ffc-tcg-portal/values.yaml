@@ -42,3 +42,8 @@ readinessProbe:
   periodSeconds: 10
   failureThreshold: 3
   timeoutSeconds: 5
+
+ingress:
+  class: nginx
+  endpoint: ffc-tcg-portal
+  server: example.com
