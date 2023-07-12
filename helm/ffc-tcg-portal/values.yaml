@@ -47,3 +47,7 @@ ingress:
   class: nginx
   endpoint: ffc-tcg-portal
   server: example.com
+
+azureIdentity:
+  clientID: not-a-real-clientID
+  resourceID: not-a-real-resourceID
