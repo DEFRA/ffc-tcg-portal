@@ -4,7 +4,7 @@ data:
   NODE_ENV: {{ quote .Values.environment }}
   PORT: {{ quote .Values.container.port }}
   APPINSIGHTS_CLOUDROLE: {{ quote .Values.name }}
-   {{- if .Values.pr }}
+  {{- if .Values.pr }}
   REDIRECT_URL: https://{{ .Values.ingress.endpoint }}-{{ .Values.pr }}.{{ .Values.ingress.server }}
   {{ else }}
   REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}

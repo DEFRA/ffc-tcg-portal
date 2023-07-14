@@ -48,6 +48,8 @@ ingress:
   endpoint: ffc-tcg-portal
   server: example.com
 
+aadPodIdentity: true
+
 azureIdentity:
   clientID: not-a-real-clientID
   resourceID: not-a-real-resourceID
