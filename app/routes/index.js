@@ -1,7 +1,10 @@
+
 module.exports = {
   method: 'GET',
   path: '/',
   handler: (request, h) => {
-    return h.view('index')
+    const environment = process.env.ENVIRONMENT_CODE
+    const applyLink = environment === 'local' ? 'http://localhost:3055/' : `https://ffc-tcg-portal-${environment}.azure.defra.cloud/`
+    return h.view('index', { applyLink })
   }
 }

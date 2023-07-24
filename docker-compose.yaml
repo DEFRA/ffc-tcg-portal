@@ -8,3 +8,4 @@ services:
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-tcg-portal-local
       APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
+      ENVIRONMENT_CODE: ${ENVIRONMENT_CODE:-local}

@@ -9,4 +9,5 @@ data:
   {{ else }}
   REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}
   {{- end }}
+  ENVIRONMENT_CODE: {{.Values.environmentCode}}
 {{- end -}}
