@@ -6,7 +6,6 @@ const routes = [].concat(
   require('../routes/sign-in'),
   require('../routes/home'),
   require('../routes/how-to-sign-in')
-
 )
 
 module.exports = {
