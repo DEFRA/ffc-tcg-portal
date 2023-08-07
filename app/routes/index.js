@@ -1,6 +1,7 @@
+const { GET } = require('../constants/http-verbs')
 
 module.exports = {
-  method: 'GET',
+  method: GET,
   path: '/',
   handler: (request, h) => {
     const environment = process.env.ENVIRONMENT_CODE

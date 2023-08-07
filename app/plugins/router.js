@@ -4,7 +4,9 @@ const routes = [].concat(
   require('../routes/static'),
   require('../routes/'),
   require('../routes/sign-in'),
-  require('../routes/home')
+  require('../routes/home'),
+  require('../routes/how-to-sign-in')
+
 )
 
 module.exports = {
