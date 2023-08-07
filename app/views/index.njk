@@ -1,4 +1,17 @@
 {% extends '_layout.njk' %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+{% block beforeContent %}
+  {{ govukBackLink({
+        text: "Back",
+        href: "/",
+        attributes: {
+          id: "back"
+        }
+      }) 
+    }}
+{% endblock %}
 
 {% block content %}
 
@@ -6,24 +19,40 @@
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">TCG Portal</h1>
-        <p class="govuk-body govuk-!-padding-bottom-9">This is the TCG Portal. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Quidem unde tempore nihil molestias et recusandae exercitationem incidunt quis.</p>
+        <h1 class="govuk-heading-xl">Make or update a rural payments claim</h1>
+        <p class="govuk-body">Sign in to make a Rural Payments claim or update your details. If you do not already have an account, you can register for one.</p>
+        <p class="govuk-body">You can use the service to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>apply for rural grants and payments, including the Basic Payment Scheme (BPS) and the Sustainable Farming Incentive (SFI)</li>
+          <li>update your personal and business details</li>
+          <li>check and update digital maps of your registered land</li>
+          <li>give someone permission to act on your behalf</li>
+        </ul>
+        <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+          Sign in
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+          </svg>
+        </a>
       </div>
     </div>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m">Apply for a scheme</h2>
+        <h2 class="govuk-heading-l govuk-!-padding-top-5">Before you start</h2>
+        <p class="govuk-body">There is a different scheme for: </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Scotland</a>
+          </li>
+          <li>
+            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Northern Ireland</a>
+          </li>
+          <li>
+            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Wales</a>
+          </li>
+        </ul>
       </div>
-    </div>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-third"> 
-        <h3 class="govuk-heading-s">
-          <a href={{ applyLink }} class="govuk-link">Farming scheme</a>
-        </h3>
-        <p class="govuk-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     </div>
         
   </main>
