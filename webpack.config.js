@@ -2,10 +2,11 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { DEVELOPMENT, TEST, PRODUCTION } = require('./app/constants/environments')
 
-const isDev = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test'
+const isDev = process.env.NODE_ENV === DEVELOPMENT || process.env.NODE_ENV === TEST
 
-console.log(`Running webpack in ${isDev ? 'development' : 'production'} mode`)
+console.log(`Running webpack in ${isDev ? DEVELOPMENT : PRODUCTION} mode`)
 
 module.exports = {
   entry: {
@@ -13,7 +14,7 @@ module.exports = {
       './app/frontend/css/index.js'
     ]
   },
-  mode: isDev ? 'development' : 'production',
+  mode: isDev ? DEVELOPMENT : PRODUCTION,
   module: {
     rules: [
       {
