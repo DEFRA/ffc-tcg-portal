@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const { GET, POST } = require('../../constants/verbs')
+const { GET, POST } = require('../constants/http-verbs')
 
 module.exports = [{
   method: GET,

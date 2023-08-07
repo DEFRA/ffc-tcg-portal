@@ -1,4 +1,4 @@
-const { GET } = require('../../constants/verbs')
+const { GET } = require('../constants/http-verbs')
 
 module.exports = [{
   method: GET,
