@@ -17,13 +17,17 @@
     "start:nodemon": "nodemon --inspect=0.0.0.0 --ext css,js,njk --legacy-watch app/index.js"
   },
   "author": "Defra",
-  "contributors": [],
+  "contributors": [
+    "John Watson john.watson1@defra.gov.uk",
+    "Simon Dunn simon.dunn1@defra.gov.uk"
+  ],
   "license": "OGL-UK-3.0",
   "dependencies": {
     "@hapi/crumb": "9.0.1",
     "@hapi/hapi": "20.2.2",
     "@hapi/inert": "6.0.3",
     "@hapi/vision": "7.0.2",
+    "@hapi/wreck": "18.0.1",
     "applicationinsights": "2.3.5",
     "govuk-frontend": "4.7.0",
     "hapi-auth-jwt2": "10.4.0",
