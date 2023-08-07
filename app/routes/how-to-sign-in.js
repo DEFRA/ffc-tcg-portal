@@ -7,33 +7,34 @@ module.exports = [{
   handler: (_request, h) => {
     return h.view('how-to-sign-in')
   }
+},
+{
+  method: POST,
+  path: '/how-to-sign-in',
+  options: {
+    validate: {
+      payload: Joi.object({
+        selection: Joi.string().required()
+      }),
+      failAction: async (request, h, _error) => {
+        return h.view('how-to-sign-in', {
+          message: 'Please select an option'
+        }).takeover()
+      }
+    },
+    handler: async (request, h) => {
+      console.log(request.payload.selection)
+      try {
+        if (request.payload.selection === 'login') {
+          return h.redirect('/sign-in')
+        }
+        return h.redirect('/register')
+      } catch {
+        return h.view('how-to-sign-in', {
+          message: 'Please select an option'
+        })
+      }
+    }
+  }
 }
-// {
-//   method: POST,
-//   path: '/sign-in',
-//   options: {
-//     validate: {
-//       payload: Joi.object({
-//         crn: Joi.number().integer().required(),
-//         password: Joi.string().required()
-//       }),
-//       failAction: async (request, h, _error) => {
-//         return h.view('sign-in', {
-//           message: 'Your CRN and/or password is incorrect',
-//           crn: request.payload.crn
-//         }).takeover()
-//       }
-//     },
-//     handler: async (request, h) => {
-//       try {
-//         return h.redirect('/home')
-//       } catch {
-//         return h.view('sign-in', {
-//           message: 'Your CRN and/or password is incorrect',
-//           crn: request.payload.crn
-//         })
-//       }
-//     }
-//   }
-// }
 ]
