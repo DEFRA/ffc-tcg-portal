@@ -25,6 +25,7 @@
     "@hapi/vision": "7.0.2",
     "applicationinsights": "2.3.5",
     "govuk-frontend": "4.7.0",
+    "joi": "17.9.2",
     "nunjucks": "3.2.4"
   },
   "devDependencies": {
