@@ -10,8 +10,7 @@ console.log(`Running webpack in ${isDev ? 'development' : 'production'} mode`)
 module.exports = {
   entry: {
     core: [
-      './app/frontend/css/index.js',
-      './app/frontend/images/search-icon.png'
+      './app/frontend/css/index.js'
     ]
   },
   mode: isDev ? 'development' : 'production',
