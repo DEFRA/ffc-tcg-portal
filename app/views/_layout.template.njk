@@ -43,9 +43,6 @@
 {% block content %}
 {% endblock %}
 
-{% block footer %}
-{% endblock %}
-
 {% block bodyEnd %}
   {# Run JavaScript at end of the <body>, to avoid blocking the initial render. #}
 <% htmlWebpackPlugin.files.js.forEach(file => { %>
