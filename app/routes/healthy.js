@@ -1,5 +1,7 @@
+const { GET } = require('../constants/http-verbs')
+
 module.exports = {
-  method: 'GET',
+  method: GET,
   path: '/healthy',
   handler: (request, h) => {
     return h.response('ok').code(200)
