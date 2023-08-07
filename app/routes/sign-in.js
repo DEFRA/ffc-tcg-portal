@@ -17,9 +17,10 @@ module.exports = [{
         crn: Joi.number().integer().required(),
         password: Joi.string().required()
       }),
-      failAction: async (_request, h, _error) => {
+      failAction: async (request, h, _error) => {
         return h.view('sign-in', {
-          message: 'Your CRN and/or password is incorrect'
+          message: 'Your CRN and/or password is incorrect',
+          crn: request.payload.crn
         }).takeover()
       }
     },
@@ -28,7 +29,8 @@ module.exports = [{
         return h.redirect('/home')
       } catch {
         return h.view('sign-in', {
-          message: 'Your CRN and/or password is incorrect'
+          message: 'Your CRN and/or password is incorrect',
+          crn: request.payload.crn
         })
       }
     }
