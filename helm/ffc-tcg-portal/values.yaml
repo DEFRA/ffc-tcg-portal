@@ -26,6 +26,10 @@ container:
   limitMemory: 100Mi
   limitCpu: 100m
   port: 3054
+  authEnabled: true
+  authClientId: not-a-real-clientID
+  authServiceId: not-a-real-serviceID
+  authRedirectPath: /home
 
 livenessProbe:
   path: /healthz

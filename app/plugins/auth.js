@@ -1,5 +1,5 @@
-const { jwtConfig } = require('../config')
-const { validate } = require('../auth')
+const { jwtConfig } = require('../config').authConfig
+const { validateToken } = require('../auth')
 const { AUTH_COOKIE_NAME } = require('../constants/cookies')
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     register: (server, _options) => {
       server.auth.strategy('jwt', 'jwt', {
         key: jwtConfig.secret,
-        validate,
+        validate: validateToken,
         cookieKey: AUTH_COOKIE_NAME
       })
       server.auth.default({ strategy: 'jwt', mode: 'try' })

@@ -5,9 +5,9 @@ module.exports = {
   method: GET,
   path: '/healthy',
   options: {
-    auth: false,
-    handler: (request, h) => {
-      return h.response(OK).code(200)
-    }
+    auth: false
+  },
+  handler: (request, h) => {
+    return h.response(OK).code(200)
   }
 }

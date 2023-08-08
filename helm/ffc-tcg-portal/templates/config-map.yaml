@@ -4,10 +4,12 @@ data:
   NODE_ENV: {{ quote .Values.environment }}
   PORT: {{ quote .Values.container.port }}
   APPINSIGHTS_CLOUDROLE: {{ quote .Values.name }}
+  AUTH_CLIENT_ID: {{ quote .Values.authClientId }}
+  AUTH_SERVICE_ID: {{ quote .Values.authServiceId }}
   {{- if .Values.pr }}
-  REDIRECT_URL: https://{{ .Values.ingress.endpoint }}-{{ .Values.pr }}.{{ .Values.ingress.server }}
+  AUTH_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}-{{ .Values.pr }}.{{ .Values.ingress.server }}/{{ .Values.authRedirectPath }}
   {{ else }}
-  REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}
+  AUTH_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}/{{ .Values.authRedirectPath }}
   {{- end }}
   ENVIRONMENT_CODE: {{.Values.environmentCode}}
 {{- end -}}
