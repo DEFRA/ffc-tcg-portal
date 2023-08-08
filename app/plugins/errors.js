@@ -12,7 +12,7 @@ module.exports = {
 
           // if not authenticated then request login
           if (statusCode === 401) {
-            return h.redirect('/sign-in')
+            return h.redirect('/sign-in').code(statusCode)
           }
 
           // In the event of 404
