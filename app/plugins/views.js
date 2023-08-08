@@ -22,7 +22,7 @@ module.exports = {
             'node_modules/govuk-frontend/'
           ], {
             autoescape: true,
-            watch: true
+            watch: serverConfig.isDev
           })
 
           return next()
@@ -31,7 +31,7 @@ module.exports = {
     },
     path: ['../views'],
     relativeTo: __dirname,
-    isCached: false,
+    isCached: !serverConfig.isDev,
     context: {
       appVersion: version,
       assetPath: '/static',

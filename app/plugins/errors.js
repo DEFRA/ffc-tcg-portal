@@ -10,16 +10,15 @@ module.exports = {
           // processing the request
           const statusCode = response.output.statusCode
 
+          // if not authenticated then request login
+          if (statusCode === 401) {
+            return h.redirect('/sign-in').code(statusCode)
+          }
+
           // In the event of 404
           // return the `404` view
           if (statusCode === 404) {
             return h.view('404').code(statusCode)
-          }
-
-          // In the event of 401
-          // redirect to login
-          if (statusCode === 401) {
-            return h.redirect('/login')
           }
 
           request.log('error', {

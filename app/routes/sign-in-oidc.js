@@ -3,10 +3,7 @@ const { OK } = require('../constants/ok')
 
 module.exports = {
   method: GET,
-  path: '/healthz',
-  options: {
-    auth: false
-  },
+  path: '/sign-in-oidc',
   handler: (request, h) => {
     return h.response(OK).code(200)
   }

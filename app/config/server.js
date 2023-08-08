@@ -5,9 +5,6 @@ const schema = Joi.object().keys({
   port: Joi.number().default(3054),
   env: Joi.string().valid(DEVELOPMENT, TEST, PRODUCTION).default(DEVELOPMENT),
   serviceName: Joi.string().default('Rural payments'),
-  jwtConfig: Joi.object({
-    secret: Joi.string()
-  }),
   cookieOptions: Joi.object({
     ttl: Joi.number().default(1000 * 60 * 60 * 24), // 24 hours
     encoding: Joi.string().valid('base64json').default('base64json'),
@@ -23,9 +20,6 @@ const config = {
   port: process.env.PORT,
   env: process.env.NODE_ENV,
   serviceName: process.env.SERVICE_NAME,
-  jwtConfig: {
-    secret: process.env.JWT_SECRET
-  },
   cookieOptions: {
     ttl: process.env.COOKIE_TTL,
     encoding: process.env.COOKIE_ENCODING,
