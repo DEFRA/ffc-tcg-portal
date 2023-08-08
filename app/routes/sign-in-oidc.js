@@ -1,10 +1,15 @@
+const { authConfig } = require('../config')
+const { AUTH_COOKIE_NAME } = require('../constants/cookies')
 const { GET } = require('../constants/http-verbs')
-const { OK } = require('../constants/ok')
 
 module.exports = {
   method: GET,
   path: '/sign-in-oidc',
   handler: (request, h) => {
-    return h.response(OK).code(200)
+    // do stuff to validate defra id token
+    const token = 'whatever'
+
+    return h.redirect('/home')
+      .state(AUTH_COOKIE_NAME, token, authConfig.cookieOptions)
   }
 }

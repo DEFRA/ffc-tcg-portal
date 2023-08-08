@@ -13,7 +13,8 @@ module.exports = [{
     }
 
     if (authConfig.enabled) {
-      // redirect to Defra ID
+      return h.redirect('https://whereeverdefraidis.com')
+        .header('whateverpropidwants', 'whateverpropidwants')
     }
 
     return h.view('sign-in')
