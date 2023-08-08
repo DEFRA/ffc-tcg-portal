@@ -6,6 +6,7 @@
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 
 {% block beforeContent %}
+  {{ super() }}
   {{ govukBackLink({
         text: "Back",
         href: "/",

@@ -35,8 +35,10 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% if isAuthenticated %}
-    <a href="/sign-out" class="govuk-link">Sign out</a>
+  {% if auth.isAuthenticated %}
+    <div class="gov-grid-row">
+      <a href="/sign-out" class="govuk-link">Sign out</a>
+    </div>
   {% endif %}
 {% endblock %}
 
