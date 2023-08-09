@@ -3,7 +3,11 @@ const { jwtConfig } = require('../../config').authConfig
 const { USER } = require('../scopes')
 
 const createToken = (crn) => {
-  return jwt.sign({ userId: crn, scope: [USER] }, jwtConfig.secret, {
+  return jwt.sign({
+    nonce: 'defaultNonce',
+    contactId: crn,
+    roles: [USER]
+  }, jwtConfig.secret, {
     expiresIn: `${jwtConfig.expiryInMinutes}m`
   })
 }
