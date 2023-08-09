@@ -1,7 +1,7 @@
 const Wreck = require('@hapi/wreck')
 const { authConfig } = require('../../config')
 
-const getAccessToken = async (code) => {
+const refreshAccessToken = async (refreshToken) => {
   const url = `https//:${authConfig.tenant}.b2clogin.com/${authConfig.tenant}.onmicrosoft.com/${authConfig.policy}/oauth2/v2.0/token`
 
   const { payload } = await Wreck.post(url, {
@@ -10,7 +10,7 @@ const getAccessToken = async (code) => {
       client_secret: authConfig.clientSecret,
       grant_type: 'authorization_code',
       scope: `openid offline_access ${authConfig.clientId}`,
-      code,
+      refresh_token: refreshToken,
       redirect_uri: authConfig.redirectUrl
     },
     headers: {
@@ -23,5 +23,5 @@ const getAccessToken = async (code) => {
 }
 
 module.exports = {
-  getAccessToken
+  refreshAccessToken
 }

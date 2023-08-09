@@ -1,7 +1,9 @@
-const { getAccessToken } = require('./get-access-token')
 const { getAuthorizationUrl } = require('./get-authorization-url')
+const { getAccessToken } = require('./get-access-token')
+const { refreshAccessToken } = require('./refresh-access-token')
 
 module.exports = {
+  getAuthorizationUrl,
   getAccessToken,
-  getAuthorizationUrl
+  refreshAccessToken
 }
