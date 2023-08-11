@@ -16,7 +16,7 @@ module.exports = {
       }).options({ stripUnknown: true }),
       failAction (request, h, err) {
         console.log(`Defra ID login failed: ${err}`)
-        return h.view('500').code(500).takeover()
+        return h.view('/').code(401).takeover()
       }
     }
   },
