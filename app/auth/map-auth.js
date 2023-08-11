@@ -5,7 +5,8 @@ const mapAuth = (request) => {
   return {
     isAuthenticated: request.auth.isAuthenticated,
     isAnonymous: !request.auth.isAuthenticated,
-    isUser: request.auth.isAuthenticated && isInRole(request.auth.credentials, USER)
+    isUser: request.auth.isAuthenticated && isInRole(request.auth.credentials, USER),
+    credentials: request.auth.credentials
   }
 }
 
