@@ -2,7 +2,7 @@ const Joi = require('joi')
 const { GET, POST } = require('../constants/http-verbs')
 const { AUTH_COOKIE_NAME } = require('../constants/cookies')
 const { authConfig } = require('../config')
-const { authorize } = require('../auth')
+const { getAccessToken, getAuthorizationUrl } = require('../auth')
 
 module.exports = [{
   method: GET,
@@ -12,8 +12,8 @@ module.exports = [{
       return h.redirect('/home')
     }
 
-    if (authConfig.enabled) {
-      // redirect to Defra ID
+    if (authConfig.defraIdEnabled) {
+      return h.redirect(getAuthorizationUrl())
     }
 
     return h.view('sign-in')
@@ -37,10 +37,10 @@ module.exports = [{
     }
   },
   handler: async (request, h) => {
-    if (authConfig.enabled) {
+    if (authConfig.defraIdEnabled) {
       return h.redirect('/sign-in')
     }
-    const token = await authorize(request.payload.crn, request.payload.password)
+    const token = await getAccessToken(request.payload.crn, request.payload.password)
     return h.redirect('/home')
       .state(AUTH_COOKIE_NAME, token, authConfig.cookieOptions)
   }
