@@ -4,12 +4,14 @@ data:
   NODE_ENV: {{ quote .Values.environment }}
   PORT: {{ quote .Values.container.port }}
   APPINSIGHTS_CLOUDROLE: {{ quote .Values.name }}
-  AUTH_CLIENT_ID: {{ quote .Values.authClientId }}
-  AUTH_SERVICE_ID: {{ quote .Values.authServiceId }}
+  DEFRA_ID_ENABLED: {{ .Values.defraIdEnabled }}
+  DEFRA_ID_TENANT: {{ quote .Values.defraIdTenant }}
+  DEFRA_ID_CLIENT_ID: {{ quote .Values.defraIdClientId }}  
+  DEFRA_ID_SERVICE_ID: {{ quote .Values.defraIdServiceId }}
   {{- if .Values.pr }}
-  AUTH_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}-{{ .Values.pr }}.{{ .Values.ingress.server }}/{{ .Values.authRedirectPath }}
+  DEFRA_ID_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}-{{ .Values.pr }}.{{ .Values.ingress.server }}/{{ .Values.authRedirectUrl }}
   {{ else }}
-  AUTH_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}/{{ .Values.authRedirectPath }}
+  DEFRA_ID_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}/{{ .Values.authRedirectUrl }}
   {{- end }}
   ENVIRONMENT_CODE: {{.Values.environmentCode}}
 {{- end -}}
