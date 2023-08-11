@@ -9,9 +9,9 @@ data:
   DEFRA_ID_CLIENT_ID: {{ quote .Values.container.defraIdClientId }}  
   DEFRA_ID_SERVICE_ID: {{ quote .Values.container.defraIdServiceId }}
   {{- if .Values.pr }}
-  DEFRA_ID_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}-{{ .Values.pr }}.{{ .Values.ingress.server }}/{{ .Values.container.authRedirectUrl }}
+  DEFRA_ID_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}-{{ .Values.pr }}.{{ .Values.ingress.server }}/{{ .Values.container.defraIdRedirectUrl }}
   {{ else }}
-  DEFRA_ID_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}/{{ .Values.container.authRedirectUrl }}
+  DEFRA_ID_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}/{{ .Values.container.defraIdRedirectUrl }}
   {{- end }}
   ENVIRONMENT_CODE: {{.Values.environmentCode}}
 {{- end -}}
