@@ -10,7 +10,6 @@ const schema = Joi.object().keys({
   policy: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
   redirectUrl: Joi.string().default('http://localhost:3054/sign-in-oidc'),
   jwtConfig: Joi.object({
-    secret: Joi.string(),
     expiryInMinutes: Joi.number().default(60)
   }),
   cookieOptions: Joi.object({
@@ -32,7 +31,6 @@ const config = {
   serviceId: process.env.DEFRA_ID_SERVICE_ID,
   redirectUrl: process.env.DEFRA_ID_REDIRECT_URL,
   jwtConfig: {
-    secret: process.env.JWT_SECRET,
     expiryInMinutes: process.env.JWT_EXPIRY_IN_MINUTES
   },
   cookieOptions: {
