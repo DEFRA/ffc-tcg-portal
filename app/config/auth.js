@@ -8,7 +8,7 @@ const schema = Joi.object().keys({
   clientSecret: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
   serviceId: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
   policy: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  redirectUrl: Joi.string().default('http://localhost:3054/sign-in-oidc'),
+  redirectUrl: Joi.string().default('http://localhost:3000/sign-in-oidc'),
   jwtConfig: Joi.object({
     expiryInMinutes: Joi.number().default(60)
   }),
