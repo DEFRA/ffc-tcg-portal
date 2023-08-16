@@ -3,11 +3,11 @@ const { PRODUCTION } = require('../constants/environments')
 
 const schema = Joi.object().keys({
   defraIdEnabled: Joi.bool().default(false),
-  tenant: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  clientId: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  clientSecret: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  serviceId: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  policy: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
+  tenant: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional().allow('') }),
+  clientId: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
+  clientSecret: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
+  serviceId: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
+  policy: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
   redirectUrl: Joi.string().default('http://localhost:3000/sign-in-oidc'),
   jwtConfig: Joi.object({
     expiryInMinutes: Joi.number().default(60)
