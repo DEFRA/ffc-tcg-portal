@@ -18,8 +18,8 @@ module.exports = {
           return h.continue
         }
 
-        const response = await refreshAccessToken(request.state[AUTH_REFRESH_COOKIE_NAME])
-        h.state(AUTH_COOKIE_NAME, response.access_token, authConfig.cookieOptions)
+        // const response = await refreshAccessToken(request.state[AUTH_REFRESH_COOKIE_NAME])
+        // h.state(AUTH_COOKIE_NAME, response.access_token, authConfig.cookieOptions)
         return h.continue
       })
     }

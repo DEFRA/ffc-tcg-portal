@@ -9,7 +9,8 @@ const getKeys = async () => {
   })
 
   const { keys } = payload
-  return jwkToPem(keys[0])
+  const pem = jwkToPem(keys[0])
+  return { publicKey: pem }
 }
 
 module.exports = {

@@ -6,7 +6,7 @@ const getAuthorizationUrl = () => {
   const query = [
     `p=${authConfig.policy}`,
     `client_id=${authConfig.clientId}`,
-    `service_id=${authConfig.serviceId}`,
+    `serviceId=${authConfig.serviceId}`,
     'nonce=defaultNonce',
     `redirect_uri=${authConfig.redirectUrl}`,
     `scope=openid offline_access ${authConfig.clientId}`,
@@ -14,7 +14,7 @@ const getAuthorizationUrl = () => {
     'prompt=login',
     'response_mode=form_post'
   ].join('&')
-  return `${host}${path}?${query}`
+  return encodeURI(`${host}${path}?${query}`)
 }
 
 module.exports = {
