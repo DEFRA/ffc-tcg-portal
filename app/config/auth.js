@@ -30,6 +30,7 @@ const config = {
   clientSecret: process.env.DEFRA_ID_CLIENT_SECRET,
   serviceId: process.env.DEFRA_ID_SERVICE_ID,
   redirectUrl: process.env.DEFRA_ID_REDIRECT_URL,
+  policy: process.env.DEFRA_ID_POLICY,
   jwtConfig: {
     expiryInMinutes: process.env.JWT_EXPIRY_IN_MINUTES
   },
