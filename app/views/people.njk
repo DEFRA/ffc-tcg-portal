@@ -1,0 +1,86 @@
+{% extends '_layout.njk' %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/home"
+    },
+    {
+      text: "Business hub",
+      href: "/business-hub"
+    },
+    {
+      text: "People and permissions",
+      href: "/people"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Hill Farm</span>
+        <h1 class="govuk-heading-xl">Business Hub</h1>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon govuk-!-static-margin-top-1" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              You are responsible for all information provided to us by either you or someone acting for you, including it’s accuracy.
+            </strong>
+          </div>
+          <p class="govuk-body">These people can act on behalf of the business.</p>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Name</th>
+                <th scope="col" class="govuk-table__header">Role</th>
+                <th scope="col" class="govuk-table__header">Permission</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-!-font-weight-bold">Andrew Shaughnessy</a></td>
+                <td class="govuk-table__cell">Owner or sole trader</td>
+                <td class="govuk-table__cell">Full permissions</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <div class="govuk-form-group">
+            <div class="govuk-divider"></div>
+            <h1 class="govuk-heading-m">Related actions</h1>
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link" href="#">Add person</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Remove person</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </main>
+</div>
+  {# <span class="govuk-caption-xl">Business Hub for {{ auth.credentials.name }}</span> #}
+  
+{% endblock %}

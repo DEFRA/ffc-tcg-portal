@@ -1,7 +1,5 @@
 {% extends '_layout.njk' %}
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block beforeContent %}
@@ -104,7 +102,7 @@
         <div class="govuk-grid-column-one-third">
           <p class="govuk-body">Contents</p>
             <ul class="govuk-list govuk-list--bullet">
-              <li><a href="#" class="govuk-link">People and permissions</a></li>
+              <li><a href="/people" class="govuk-link">People and permissions</a></li>
               <li><a href="#" class="govuk-link">Land</a></li>
               <li><a href="#" class="govuk-link">Grants and payments</a></li>
               <li><a href="#" class="govuk-link">Commons</a></li>
@@ -116,7 +114,7 @@
       </div>
         <div class="govuk-grid-column-two-thirds">
           <div class="govuk-!-static-margin-bottom-7">
-            <h3><a href="#" class="govuk-link govuk-!-font-size-24">People and permissions</a></h3>
+            <h3><a href="/people" class="govuk-link govuk-!-font-size-24">People and permissions</a></h3>
             <p class="govuk-body">Manage the people who can act for this business and their level of permission.</p>
           </div>
 
