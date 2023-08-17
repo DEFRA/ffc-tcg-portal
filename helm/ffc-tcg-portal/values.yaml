@@ -26,12 +26,12 @@ container:
   limitMemory: 100Mi
   limitCpu: 100m
   port: 3000
-  defraIdEnabled: false
+  defraIdEnabled: true
   defraIdTenant: not-a-real-tenant
   defraIdClientId: not-a-real-clientID
   defraIdClientSecret: not-a-real-clientSecret
   defraIdServiceId: not-a-real-serviceID
-  defraIdRedirectUrl: /home
+  defraIdRedirectUrl: sign-in-oidc
 
 livenessProbe:
   path: /healthz
