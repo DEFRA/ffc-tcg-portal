@@ -31,6 +31,7 @@ container:
   defraIdClientId: not-a-real-clientID
   defraIdClientSecret: not-a-real-clientSecret
   defraIdServiceId: not-a-real-serviceID
+  defraIdPolicy: not-a-real-policy
   defraIdRedirectUrl: sign-in-oidc
 
 livenessProbe:
