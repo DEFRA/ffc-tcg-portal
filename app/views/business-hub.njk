@@ -1,0 +1,155 @@
+{% extends '_layout.njk' %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+        text: "Back",
+        href: "/home",
+        attributes: {
+          id: "back"
+        }
+      }) 
+    }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Hill Farm</span>
+        <h1 class="govuk-heading-xl">Business Hub</h1>
+        <p class="govuk-body govuk-!-font-size-24">Manage all areas of your business.</p>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Business details"
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Name:"
+              },
+              value: {
+                html: "Valley Farm"
+              }
+            },
+            {
+              key: {
+                text: "Address:"
+              },
+              value: {
+                html: "Kington </br>YO16 1EU"
+              }
+            },
+            {
+              key: {
+                text: "Email:"
+              },
+              value: {
+                html: "valleyfarm@yahoo.co.uk"
+              }
+            },
+            {
+              key: {
+                text: "Landline:"
+              },
+              value: {
+                html: "01234 567123"
+              }
+            }
+          ]
+        }) }}
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <div class="govuk-form-group">
+            <div class="govuk-divider"></div>
+            <h1 class="govuk-heading-m">Business actions</h1>
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link" href="#">View further business details</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">View business summary</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">View messages</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body">Contents</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="#" class="govuk-link">People and permissions</a></li>
+              <li><a href="#" class="govuk-link">Land</a></li>
+              <li><a href="#" class="govuk-link">Grants and payments</a></li>
+              <li><a href="#" class="govuk-link">Commons</a></li>
+              <li><a href="#" class="govuk-link">Sustainable Farming Incentive</a></li>
+              <li><a href="#" class="govuk-link">Basic Payment Scheme</a></li>
+              <li><a href="#" class="govuk-link">Countryside Stewardship</a></li>
+             
+            </ul>
+      </div>
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-!-static-margin-bottom-7">
+            <h3><a href="#" class="govuk-link govuk-!-font-size-24">People and permissions</a></h3>
+            <p class="govuk-body">Manage the people who can act for this business and their level of permission.</p>
+          </div>
+
+          <div class="govuk-!-static-margin-bottom-7">
+            <h3><a href="#" class="govuk-link govuk-!-font-size-24">Land</a></h3>
+            <p class="govuk-body">View maps of your land, transfer your land to another business, or make changes to land use.</p>
+          </div>
+
+          <div class="govuk-!-static-margin-bottom-7">
+            <h3><a href="#" class="govuk-link govuk-!-font-size-24">Grants and payments</a></h3>
+            <p class="govuk-body">View what grants you have, can apply for and any payment details.</p>
+          </div>
+
+          <div class="govuk-!-static-margin-bottom-7">
+            <h3><a href="#" class="govuk-link govuk-!-font-size-24">Commons</a></h3>
+            <p class="govuk-body">Check and update any grazing rights you hold for common land.</p>
+          </div>
+
+          <div class="govuk-!-static-margin-bottom-7">
+            <h3><a href="#" class="govuk-link govuk-!-font-size-24">Sustainable Farming Incentive</a></h3>
+            <p class="govuk-body">Apply for a SFI, check the status of any applications, or continue any current applications.</p>
+          </div>
+
+          <div class="govuk-!-static-margin-bottom-7">
+            <h3><a href="#" class="govuk-link govuk-!-font-size-24">Basic Payment Scheme</a></h3>
+            <p class="govuk-body">Check what entitlements you have for the BPS and transfer any that you’ve sold, gifted or leased. Apply for BPS, check the status of your application, or view past applications.</p>
+          </div>
+
+          <div class="govuk-!-static-margin-bottom-7">
+            <h3><a href="#" class="govuk-link govuk-!-font-size-24">Countryside Stewardship</a></h3>
+            <p class="govuk-body">Find out which CS options best suit your farm, apply to join the scheme and submit your claims.</p>
+          </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+  {# <span class="govuk-caption-xl">Business Hub for {{ auth.credentials.name }}</span> #}
+  
+{% endblock %}
