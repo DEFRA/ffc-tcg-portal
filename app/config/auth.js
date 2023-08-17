@@ -3,12 +3,12 @@ const { PRODUCTION } = require('../constants/environments')
 
 const schema = Joi.object().keys({
   defraIdEnabled: Joi.bool().default(false),
-  tenant: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  clientId: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  clientSecret: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  serviceId: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  policy: Joi.alternatives().conditional('enabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional() }),
-  redirectUrl: Joi.string().default('http://localhost:3054/sign-in-oidc'),
+  tenant: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional().allow('') }),
+  clientId: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
+  clientSecret: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
+  serviceId: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
+  policy: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
+  redirectUrl: Joi.string().default('http://localhost:3000/sign-in-oidc'),
   jwtConfig: Joi.object({
     expiryInMinutes: Joi.number().default(60)
   }),
@@ -30,6 +30,7 @@ const config = {
   clientSecret: process.env.DEFRA_ID_CLIENT_SECRET,
   serviceId: process.env.DEFRA_ID_SERVICE_ID,
   redirectUrl: process.env.DEFRA_ID_REDIRECT_URL,
+  policy: process.env.DEFRA_ID_POLICY,
   jwtConfig: {
     expiryInMinutes: process.env.JWT_EXPIRY_IN_MINUTES
   },
@@ -49,5 +50,7 @@ const { error, value } = schema.validate(config)
 if (error) {
   throw new Error(`The authentication config is invalid. ${error.message}`)
 }
+
+console.log(`Authentication mode: ${value.defraIdEnabled ? 'Defra ID' : 'Local'}`)
 
 module.exports = value

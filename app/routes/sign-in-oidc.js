@@ -9,10 +9,12 @@ module.exports = {
   path: '/sign-in-oidc',
   options: {
     auth: false,
+    plugins: {
+      crumb: false
+    },
     validate: {
       payload: Joi.object({
-        code: Joi.string().required(),
-        state: Joi.string().required()
+        code: Joi.string().required()
       }).options({ stripUnknown: true }),
       failAction (request, h, err) {
         console.log(`Defra ID login failed: ${err}`)
@@ -21,7 +23,7 @@ module.exports = {
     }
   },
   handler: async (request, h) => {
-    const response = await getAccessToken(request.payload.code, request.payload.state)
+    const response = await getAccessToken(request.payload.code)
     return h.redirect('/home')
       .state(AUTH_COOKIE_NAME, response.access_token, authConfig.cookieOptions)
       .state(AUTH_REFRESH_COOKIE_NAME, response.refresh_token, authConfig.cookieOptions)

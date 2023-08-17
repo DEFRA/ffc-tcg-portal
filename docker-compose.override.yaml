@@ -8,7 +8,7 @@ services:
     image: ffc-tcg-portal-development
     container_name: ffc-tcg-portal-development
     ports:
-      - "3054:3054"
+      - "3000:3000"
       - "9254:9229"
     volumes:
       - ./app:/home/node/app

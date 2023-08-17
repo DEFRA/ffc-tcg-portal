@@ -25,17 +25,18 @@ container:
   requestCpu: 100m
   limitMemory: 100Mi
   limitCpu: 100m
-  port: 3054
-  defraIdEnabled: false
+  port: 3000
+  defraIdEnabled: true
   defraIdTenant: not-a-real-tenant
   defraIdClientId: not-a-real-clientID
   defraIdClientSecret: not-a-real-clientSecret
   defraIdServiceId: not-a-real-serviceID
-  defraIdRedirectUrl: /home
+  defraIdPolicy: not-a-real-policy
+  defraIdRedirectUrl: sign-in-oidc
 
 livenessProbe:
   path: /healthz
-  port: 3054
+  port: 3000
   initialDelaySeconds: 20
   periodSeconds: 10
   failureThreshold: 3
@@ -43,7 +44,7 @@ livenessProbe:
 
 readinessProbe:
   path: /healthy
-  port: 3054
+  port: 3000
   initialDelaySeconds: 30
   periodSeconds: 10
   failureThreshold: 3
