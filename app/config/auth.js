@@ -19,7 +19,8 @@ const schema = Joi.object().keys({
     isSecure: Joi.bool().default(true),
     isHttpOnly: Joi.bool().default(true),
     clearInvalid: Joi.bool().default(false),
-    strictHeader: Joi.bool().default(true)
+    strictHeader: Joi.bool().default(true),
+    path: Joi.string().default('/')
   })
 })
 
