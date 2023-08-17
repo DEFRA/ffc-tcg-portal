@@ -51,4 +51,6 @@ if (error) {
   throw new Error(`The authentication config is invalid. ${error.message}`)
 }
 
+console.log(`Authentication mode: ${value.defraIdEnabled ? 'Defra ID' : 'Local'}`)
+
 module.exports = value
