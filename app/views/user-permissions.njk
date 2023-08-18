@@ -1,0 +1,95 @@
+{% extends '_layout.njk' %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/home"
+    },
+    {
+      text: "Business hub",
+      href: "/business-hub"
+    },
+    {
+      text: "People and permissions",
+      href: "/people"
+    },
+    {
+      text: "Andrew Shaughnessy"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">Hill Farm</span>
+        <h1 class="govuk-heading-xl">Permissions for {{name}}</h1>
+        <p class="govuk-body">{{name}} is an agent of Valley Farm.</p>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Area</th>
+                <th scope="col" class="govuk-table__header">Permission level</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Business details</th>
+                <td class="govuk-table__cell">Full permissions</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Land details</th>
+                <td class="govuk-table__cell">Amend</td>
+              </tr>              
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Entitlements</th>
+                <td class="govuk-table__cell">Amend</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Basic payment scheme (BPS)</th>
+                <td class="govuk-table__cell">Submit</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Countryside stewardship (applications)</th>
+                <td class="govuk-table__cell">No access</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Countryside stewardship (agreements)</th>
+                <td class="govuk-table__cell">No access</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Environmental land management (applications)</th>
+                <td class="govuk-table__cell">No access</td>
+              </tr>
+            </tbody>
+          </table>
+
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds"> </div>
+        <form action="">
+          <div class="govuk-form-group">
+            <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+              Delete user
+            </button>
+          </div>
+        </form>
+    </div>
+
+
+  </main>
+</div>
+  {# <span class="govuk-caption-xl">Business Hub for {{ auth.credentials.name }}</span> #}
+  
+{% endblock %}
