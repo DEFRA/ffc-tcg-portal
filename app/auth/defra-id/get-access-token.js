@@ -1,8 +1,9 @@
 const Wreck = require('@hapi/wreck')
 const { authConfig } = require('../../config')
+const { getWellKnown } = require('./get-well-known')
 
 const getAccessToken = async (code) => {
-  const url = `https://${authConfig.tenant}.b2clogin.com/${authConfig.tenant}.onmicrosoft.com/${authConfig.policy}/oauth2/v2.0/token`
+  const { token_endpoint: url } = await getWellKnown()
 
   const query = [
     `client_id=${authConfig.clientId}`,
