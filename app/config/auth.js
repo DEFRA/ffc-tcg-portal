@@ -3,7 +3,7 @@ const { PRODUCTION } = require('../constants/environments')
 
 const schema = Joi.object().keys({
   defraIdEnabled: Joi.bool().default(false),
-  tenant: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().optional().allow('') }),
+  wellKnownUrl: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().uri().required(), otherwise: Joi.string().allow('') }),
   clientId: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
   clientSecret: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
   serviceId: Joi.alternatives().conditional('defraIdEnabled', { is: true, then: Joi.string().required(), otherwise: Joi.string().allow('') }),
@@ -26,7 +26,7 @@ const schema = Joi.object().keys({
 
 const config = {
   defraIdEnabled: process.env.DEFRA_ID_ENABLED,
-  tenant: process.env.DEFRA_ID_TENANT,
+  wellKnownUrl: process.env.DEFRA_ID_WELL_KNOWN_URL,
   clientId: process.env.DEFRA_ID_CLIENT_ID,
   clientSecret: process.env.DEFRA_ID_CLIENT_SECRET,
   serviceId: process.env.DEFRA_ID_SERVICE_ID,
