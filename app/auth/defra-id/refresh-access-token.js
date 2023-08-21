@@ -21,6 +21,7 @@ const refreshAccessToken = async (refreshToken) => {
     json: true
   })
 
+  console.log('Refreshed access token')
   return payload
 }
 
