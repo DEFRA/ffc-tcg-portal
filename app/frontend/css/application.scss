@@ -6,3 +6,7 @@ $govuk-assets-path: "~govuk-frontend/govuk/assets/";
   margin-bottom: 10px;
 }
 
+.govuk-box {
+  background-color: govuk-colour("light-grey");
+  padding: 20px;
+}

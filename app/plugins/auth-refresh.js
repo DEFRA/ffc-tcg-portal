@@ -11,6 +11,10 @@ module.exports = {
           return h.continue
         }
 
+        if(request.path.startsWith('/static/')) {
+          return h.continue
+        }
+
         const currentToken = request.state[AUTH_COOKIE_NAME]
         const refreshToken = request.state[AUTH_REFRESH_COOKIE_NAME]
 
