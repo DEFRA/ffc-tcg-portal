@@ -20,8 +20,6 @@ module.exports = [{
   },
   handler: (request, h) => {
     const applyUrl = getApplyUrl(request.query.scheme)
-    return h.redirect(applyUrl)
-      .header('Authorization', `Bearer ${request.state[AUTH_COOKIE_NAME]}`)
-      .header('Refresh-Token', request.state[AUTH_REFRESH_COOKIE_NAME])
+    return h.redirect(`${applyUrl}?token=${request.state[AUTH_COOKIE_NAME]}&refreshToken=${request.state[AUTH_REFRESH_COOKIE_NAME]}`)
   }
 }]
