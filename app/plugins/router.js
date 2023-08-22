@@ -9,7 +9,8 @@ const routes = [].concat(
   require('../routes/home'),
   require('../routes/business-hub'),
   require('../routes/people'),
-  require('../routes/user-permissions')
+  require('../routes/user-permissions'),
+  require('../routes/add-new-party')
 )
 
 module.exports = {
