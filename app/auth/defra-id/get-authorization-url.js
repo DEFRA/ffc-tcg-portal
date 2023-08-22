@@ -1,8 +1,9 @@
 const { authConfig } = require('../../config')
+const { getWellKnown } = require('./get-well-known')
 
-const getAuthorizationUrl = () => {
-  const host = `https://${authConfig.tenant}.b2clogin.com`
-  const path = `/${authConfig.tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
+const getAuthorizationUrl = async () => {
+  const { authorization_endpoint: url } = await getWellKnown()
+
   const query = [
     `p=${authConfig.policy}`,
     `client_id=${authConfig.clientId}`,
@@ -14,7 +15,7 @@ const getAuthorizationUrl = () => {
     'prompt=login',
     'response_mode=form_post'
   ].join('&')
-  return encodeURI(`${host}${path}?${query}`)
+  return encodeURI(`${url}?${query}`)
 }
 
 module.exports = {

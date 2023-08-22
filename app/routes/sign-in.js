@@ -7,13 +7,13 @@ const { getAccessToken, getAuthorizationUrl } = require('../auth')
 module.exports = [{
   method: GET,
   path: '/sign-in',
-  handler: (request, h) => {
+  handler: async (request, h) => {
     if (request.auth.isAuthenticated) {
       return h.redirect('/home')
     }
 
     if (authConfig.defraIdEnabled) {
-      return h.redirect(getAuthorizationUrl())
+      return h.redirect(await getAuthorizationUrl())
     }
 
     return h.view('sign-in')
