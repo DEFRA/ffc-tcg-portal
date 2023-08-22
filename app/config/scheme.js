@@ -1,5 +1,4 @@
 const Joi = require('joi')
-const { DEVELOPMENT, TEST, PRODUCTION } = require('../constants/environments')
 
 const schema = Joi.object().keys({
   sfi: Joi.object({

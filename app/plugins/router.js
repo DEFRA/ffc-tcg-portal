@@ -10,7 +10,7 @@ const routes = [].concat(
   require('../routes/business-hub'),
   require('../routes/people'),
   require('../routes/grants-and-payments'),
-  require('../routes/apply'),
+  require('../routes/apply')
 )
 
 module.exports = {
