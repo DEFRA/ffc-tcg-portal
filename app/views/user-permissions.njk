@@ -78,8 +78,10 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds"> </div>
-        <form action="">
+        <form method="POST" action="/people/user-permissions">
+          <input type="hidden" name="crumb" value="{{crumb}}"/>
           <div class="govuk-form-group">
+            <input type="hidden" id="name" name="name" value="{{name}}">
             <button class="govuk-button govuk-button--warning" data-module="govuk-button">
               Delete user
             </button>
