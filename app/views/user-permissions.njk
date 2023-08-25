@@ -1,27 +1,23 @@
 {% extends '_layout.njk' %}
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 
 {% block beforeContent %}
   {{ super() }}
-  {{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "/home"
-    },
-    {
-      text: "Business hub",
-      href: "/business-hub"
-    },
-    {
-      text: "People and permissions",
-      href: "/people"
-    },
-    {
-      text: "Andrew Shaughnessy"
-    }
-  ]
-}) }}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/home">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/business-hub">Business hub</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/people">People and permissions</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      {{name}}
+    </li>
+  </ol>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -73,21 +69,20 @@
             </tbody>
           </table>
 
+          <a href="/people/edit-party?user={{name}}&id={{id}}">
+            <button class="govuk-button" data-module="govuk-button">Edit user</button>
+          </a>
+          <form method="POST" action="/people/user-permissions/delete">
+            <input type="hidden" name="crumb" value="{{crumb}}"/>
+            <div class="govuk-form-group">
+              <input type="hidden" id="id" name="id" value="{{id}}">
+              <button class="govuk-button govuk-button--warning" data-module="govuk-button">Delete user</button>
+            </div>
+          </form>
+      
       </div>
     </div>
 
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds"> </div>
-        <form method="POST" action="/people/user-permissions">
-          <input type="hidden" name="crumb" value="{{crumb}}"/>
-          <div class="govuk-form-group">
-            <input type="hidden" id="name" name="name" value="{{name}}">
-            <button class="govuk-button govuk-button--warning" data-module="govuk-button">
-              Delete user
-            </button>
-          </div>
-        </form>
-    </div>
 
 
   </main>
