@@ -26,6 +26,6 @@ module.exports = {
     const response = await getAccessToken(request.payload.code)
     return h.redirect('/home')
       .state(AUTH_COOKIE_NAME, response.access_token, authConfig.cookieOptions)
-      // .state(AUTH_REFRESH_COOKIE_NAME, response.refresh_token, authConfig.cookieOptions)
+      .state(AUTH_REFRESH_COOKIE_NAME, response.refresh_token, authConfig.cookieOptions)
   }
 }
