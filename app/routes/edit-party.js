@@ -22,8 +22,8 @@ module.exports = [{
   options: {
     validate: {
       payload: Joi.object({
-        firstname: Joi.string().required(),
-        lastname: Joi.string().required(),
+        firstName: Joi.string().required(),
+        lastName: Joi.string().required(),
         userid: Joi.string().required()
       }),
       failAction: async (request, h, _error) => {
@@ -41,8 +41,8 @@ module.exports = [{
             authorization: `Bearer ${request.state.tcg_auth_token}`
           },
           payload: {
-            firstname: request.payload.firstname,
-            lastname: request.payload.lastname
+            firstName: request.payload.firstName,
+            lastName: request.payload.lastName
           }
         })
       return h.redirect('/people')

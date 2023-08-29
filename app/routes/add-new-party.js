@@ -18,32 +18,28 @@ module.exports = [{
   options: {
     validate: {
       payload: Joi.object({
-        firstname: Joi.string().required(),
-        lastname: Joi.string().required()
+        firstName: Joi.string().required(),
+        lastName: Joi.string().required()
       }),
       failAction: async (request, h, _error) => {
-        return h.view('sign-in', {
+        return h.view('/add-new-party', {
           message: 'First name and last name are required'
         }).takeover()
       }
     }
   },
   handler: async (request, h) => {
-    try {
-      await Wreck.post(`${API_URL}/master/api-priv/v1/parties`,
-        {
-          headers: {
-            authorization: `Bearer ${request.state.tcg_auth_token}`
-          },
-          payload: {
-            firstname: request.payload.firstname,
-            lastname: request.payload.lastname
-          }
-        })
-      return h.redirect('/people')
-    } catch (err) {
-      throw new Error()
-    }
+    await Wreck.post(`${API_URL}/master/api-priv/v1/parties`,
+      {
+        headers: {
+          authorization: `Bearer ${request.state.tcg_auth_token}`
+        },
+        payload: {
+          firstName: request.payload.firstName,
+          lastName: request.payload.lastName
+        }
+      })
+    return h.redirect('/people')
   }
 }
 ]
