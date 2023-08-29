@@ -1,6 +1,7 @@
 const Joi = require('joi')
 const Wreck = require('@hapi/wreck')
 const { GET, POST } = require('../constants/http-verbs')
+const { API_URL } = require('../constants/api-url')
 const { USER } = require('../auth/scopes')
 
 module.exports = [{
@@ -28,11 +29,8 @@ module.exports = [{
     }
   },
   handler: async (request, h) => {
-    console.log('add-new-party')
-    console.log(request.payload.firstname)
-
     try {
-      await Wreck.post('http://ffc-tcg-abaco-agri-stub:3052/master/api-priv/v1/parties',
+      await Wreck.post(`${API_URL}/master/api-priv/v1/parties`,
         {
           headers: {
             authorization: `Bearer ${request.state.tcg_auth_token}`

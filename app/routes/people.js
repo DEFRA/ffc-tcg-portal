@@ -1,5 +1,5 @@
 const { GET } = require('../constants/http-verbs')
-// const { AUTH_COOKIE_NAME } = require('../constants/cookies')
+const { API_URL } = require('../constants/api-url')
 const { USER } = require('../auth/scopes')
 const Wreck = require('@hapi/wreck')
 
@@ -9,7 +9,7 @@ module.exports = [{
   options: { auth: { strategy: 'jwt', scope: [USER] } },
   handler: async (request, h) => {
     try {
-      const promise = Wreck.request(GET, 'http://ffc-tcg-abaco-agri-stub:3052/master/api-priv/v1/parties', {
+      const promise = Wreck.request(GET, `${API_URL}/master/api-priv/v1/parties`, {
         headers: {
           authorization: `Bearer ${request.state.tcg_auth_token}`
         }
