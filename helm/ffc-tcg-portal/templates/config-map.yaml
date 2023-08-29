@@ -15,7 +15,7 @@ data:
   DEFRA_ID_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}/{{ .Values.container.defraIdRedirectUrl }}
   {{- end }}
   ENVIRONMENT_CODE: {{.Values.environmentCode}}
-  {{- if (ne (.Values.useAbacoStub), "false")}}
+  {{- if (ne (.Values.useAbacoStub) "false")}}
   {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
   ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}-{{ .Values.environmentCode }}.{{ .Values.ingress.server }}
   {{ else }}
