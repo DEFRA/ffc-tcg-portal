@@ -34,16 +34,12 @@ module.exports = [{
     }
   },
   handler: async (request, h) => {
-    try {
-      await Wreck.delete(`${serverConfig.abacoEndpoint}/master/api-priv/v1/parties/${request.payload.id}`, {
-        headers: {
-          authorization: `Bearer ${request.state.tcg_auth_token}`
-        }
-      })
-      return h.redirect('/people')
-    } catch (err) {
-      throw new Error()
-    }
+    await Wreck.delete(`${serverConfig.abacoEndpoint}/master/api-priv/v1/parties/${request.payload.id}`, {
+      headers: {
+        authorization: `Bearer ${request.state.tcg_auth_token}`
+      }
+    })
+    return h.redirect('/people')
   }
 }
 ]
