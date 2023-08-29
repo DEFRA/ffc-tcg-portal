@@ -33,6 +33,8 @@ container:
   defraIdServiceId: not-a-real-serviceID
   defraIdPolicy: not-a-real-policy
   defraIdRedirectUrl: sign-in-oidc
+  abacoEndpoint: not-an-endpoint
+  useAbacoStub: true
 
 livenessProbe:
   path: /healthz

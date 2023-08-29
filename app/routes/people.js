@@ -1,5 +1,5 @@
 const { GET } = require('../constants/http-verbs')
-const { API_URL } = require('../constants/api-url')
+const { serverConfig } = require('../config')
 const { USER } = require('../auth/scopes')
 const Wreck = require('@hapi/wreck')
 
@@ -9,7 +9,7 @@ module.exports = [{
   options: { auth: { strategy: 'jwt', scope: [USER] } },
   handler: async (request, h) => {
     try {
-      const promise = Wreck.request(GET, `${API_URL}/master/api-priv/v1/parties`, {
+      const promise = Wreck.request(GET, `${serverConfig.abacoEndpoint}/master/api-priv/v1/parties`, {
         headers: {
           authorization: `Bearer ${request.state.tcg_auth_token}`
         }
