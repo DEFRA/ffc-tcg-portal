@@ -16,17 +16,17 @@ data:
   {{- end }}
   ENVIRONMENT_CODE: {{.Values.environmentCode}}
   {{- if not .Values.useAbacoStub }}
-    {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
-      ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}-{{ .Values.environmentCode }}.{{ .Values.ingress.server }}
-      {{ else }}
-      ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}.{{ .Values.ingress.server }}
-    {{- end }}
+  {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
+  ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}-{{ .Values.environmentCode }}.{{ .Values.ingress.server }}
   {{ else }}
-    {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
-      ABACO_ENDPOINT: {{ .Values.container.stubEndpoint }}.{{ .Values.workstream }}-{{ .Values.environmentCode }}
-      {{ else }}
-      ABACO_ENDPOINT: {{ .Values.container.stubEndpoint }}.{{ .Values.workstream }}
-    {{- end }}
+  ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}.{{ .Values.ingress.server }}
+  {{- end }}
+  {{ else }}
+  {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
+  ABACO_ENDPOINT: {{ .Values.container.stubEndpoint }}.{{ .Values.workstream }}-{{ .Values.environmentCode }}
+  {{ else }}
+  ABACO_ENDPOINT: {{ .Values.container.stubEndpoint }}.{{ .Values.workstream }}
+  {{- end }}
   {{- end }}
 
 {{- end -}}
