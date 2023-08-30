@@ -35,6 +35,7 @@ container:
   defraIdRedirectUrl: sign-in-oidc
   abacoEndpoint: not-an-endpoint
   useAbacoStub: true
+  stubEndpoint: http://ffc-tcg-abaco-agri-stub
 
 livenessProbe:
   path: /healthz
