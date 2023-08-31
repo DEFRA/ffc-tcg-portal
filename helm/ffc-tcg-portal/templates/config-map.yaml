@@ -15,4 +15,18 @@ data:
   DEFRA_ID_REDIRECT_URL: https://{{ .Values.ingress.endpoint }}.{{ .Values.ingress.server }}/{{ .Values.container.defraIdRedirectUrl }}
   {{- end }}
   ENVIRONMENT_CODE: {{.Values.environmentCode}}
+  {{- if not .Values.useAbacoStub }}
+  {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
+  ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}-{{ .Values.environmentCode }}.{{ .Values.ingress.server }}
+  {{ else }}
+  ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}.{{ .Values.ingress.server }}
+  {{- end }}
+  {{ else }}
+  {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
+  ABACO_ENDPOINT: {{ .Values.container.stubEndpoint }}.{{ .Values.workstream }}-{{ .Values.environmentCode }}
+  {{ else }}
+  ABACO_ENDPOINT: {{ .Values.container.stubEndpoint }}.{{ .Values.workstream }}
+  {{- end }}
+  {{- end }}
+
 {{- end -}}

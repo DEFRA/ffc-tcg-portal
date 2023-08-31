@@ -6,7 +6,12 @@ const routes = [].concat(
   require('../routes/sign-in'),
   require('../routes/sign-in-oidc'),
   require('../routes/sign-out'),
-  require('../routes/home')
+  require('../routes/home'),
+  require('../routes/business-hub'),
+  require('../routes/people'),
+  require('../routes/user-permissions'),
+  require('../routes/add-new-party'),
+  require('../routes/edit-party')
 )
 
 module.exports = {
