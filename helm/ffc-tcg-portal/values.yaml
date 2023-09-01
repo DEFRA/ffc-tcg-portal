@@ -33,7 +33,7 @@ container:
   defraIdServiceId: not-a-real-serviceID
   defraIdPolicy: not-a-real-policy
   defraIdRedirectUrl: sign-in-oidc
-  abacoEndpoint: not-an-endpoint
+  abacoEndpoint: https://ffc-iacs-agri
   useAbacoStub: false
   stubEndpoint: http://ffc-tcg-abaco-agri-stub
 
