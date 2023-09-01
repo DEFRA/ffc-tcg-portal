@@ -21,10 +21,10 @@ containerSecret:
 deployment: {}
 
 container:
-  requestMemory: 100Mi
-  requestCpu: 100m
-  limitMemory: 100Mi
-  limitCpu: 100m
+  requestMemory: 200Mi
+  requestCpu: 200m
+  limitMemory: 200Mi
+  limitCpu: 200m
   port: 3000
   defraIdEnabled: true
   defraIdWellKnownUrl: not-a-real-url
