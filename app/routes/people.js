@@ -8,7 +8,7 @@ module.exports = [{
   path: '/people',
   options: { auth: { strategy: 'jwt', scope: [USER] } },
   handler: async (request, h) => {
-    const promise = Wreck.request(GET, `${serverConfig.abacoEndpoint}/master/api-priv/v1/parties`, {
+    const promise = Wreck.request(GET, `${serverConfig.abacoEndpoint}/party-registry/master/api-priv/v1/parties`, {
       headers: {
         authorization: `Bearer ${request.state.tcg_auth_token}`
       }

@@ -29,7 +29,7 @@ module.exports = [{
     }
   },
   handler: async (request, h) => {
-    await Wreck.post(`${serverConfig.abacoEndpoint}/master/api-priv/v1/parties`,
+    await Wreck.post(`${serverConfig.abacoEndpoint}/party-registry/master/api-priv/v1/parties`,
       {
         headers: {
           authorization: `Bearer ${request.state.tcg_auth_token}`

@@ -34,7 +34,7 @@ module.exports = [{
     }
   },
   handler: async (request, h) => {
-    await Wreck.delete(`${serverConfig.abacoEndpoint}/master/api-priv/v1/parties/${request.payload.id}`, {
+    await Wreck.delete(`${serverConfig.abacoEndpoint}/party-registry/master/api-priv/v1/parties/${request.payload.id}`, {
       headers: {
         authorization: `Bearer ${request.state.tcg_auth_token}`
       }
