@@ -34,7 +34,7 @@ container:
   defraIdPolicy: not-a-real-policy
   defraIdRedirectUrl: sign-in-oidc
   abacoEndpoint: not-an-endpoint
-  useAbacoStub: true
+  useAbacoStub: false
   stubEndpoint: http://ffc-tcg-abaco-agri-stub
 
 livenessProbe:
