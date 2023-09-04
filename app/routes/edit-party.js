@@ -43,7 +43,8 @@ module.exports = [{
           payload: {
             firstName: request.payload.firstName,
             lastName: request.payload.lastName
-          }
+          },
+          rejectUnauthorized: false
         })
       return h.redirect('/people')
     } catch (err) {

@@ -37,7 +37,8 @@ module.exports = [{
     await Wreck.delete(`${serverConfig.abacoEndpoint}/party-registry/master/api-priv/v1/parties/${request.payload.id}`, {
       headers: {
         authorization: `Bearer ${request.state.tcg_auth_token}`
-      }
+      },
+      rejectUnauthorized: false
     })
     return h.redirect('/people')
   }

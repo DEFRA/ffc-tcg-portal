@@ -36,8 +36,12 @@ module.exports = [{
         },
         payload: {
           firstName: request.payload.firstName,
-          lastName: request.payload.lastName
-        }
+          lastName: request.payload.lastName,
+          partyType: 'N',
+          taxCode: 'AAAAAAAAAAAAAAAA',
+          code: (Math.random() * 100).toString(36).slice(4, 8) // generates a random 4 digit alphanumeric string
+        },
+        rejectUnauthorized: false
       })
     return h.redirect('/people')
   }
