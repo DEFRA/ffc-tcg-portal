@@ -36,24 +36,20 @@ module.exports = [{
     }
   },
   handler: async (request, h) => {
-    try {
-      await Wreck.put(`${serverConfig.abacoEndpoint}/party-registry/master/api-priv/v1/parties/${request.payload.userid}`,
-        {
-          headers: {
-            authorization: `Bearer ${request.state.tcg_auth_token}`
-          },
-          payload: {
-            firstName: request.payload.firstName,
-            lastName: request.payload.lastName,
-            partyType: 'N',
-            code: request.payload.code
-          },
-          rejectUnauthorized: false
-        })
-      return h.redirect('/people')
-    } catch (err) {
-      throw new Error()
-    }
+    await Wreck.put(`${serverConfig.abacoEndpoint}/party-registry/master/api-priv/v1/parties/${request.payload.userid}`,
+      {
+        headers: {
+          authorization: `Bearer ${request.state.tcg_auth_token}`
+        },
+        payload: {
+          firstName: request.payload.firstName,
+          lastName: request.payload.lastName,
+          partyType: 'N',
+          code: request.payload.code
+        },
+        rejectUnauthorized: false
+      })
+    return h.redirect('/people')
   }
 }
 ]
