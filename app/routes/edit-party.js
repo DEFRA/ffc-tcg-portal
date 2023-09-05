@@ -11,7 +11,8 @@ module.exports = [{
   handler: (request, h) => {
     const user = {
       name: request.query.user,
-      id: request.query.id
+      id: request.query.id,
+      code: request.query.code
     }
     return h.view('edit-party', { user })
   }
@@ -24,7 +25,8 @@ module.exports = [{
       payload: Joi.object({
         firstName: Joi.string().required(),
         lastName: Joi.string().required(),
-        userid: Joi.string().required()
+        userid: Joi.string().required(),
+        code: Joi.string().required()
       }),
       failAction: async (request, h, _error) => {
         return h.view('edit-party', {
@@ -42,7 +44,9 @@ module.exports = [{
           },
           payload: {
             firstName: request.payload.firstName,
-            lastName: request.payload.lastName
+            lastName: request.payload.lastName,
+            partyType: 'N',
+            code: request.payload.code
           },
           rejectUnauthorized: false
         })

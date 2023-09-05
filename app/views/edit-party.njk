@@ -33,8 +33,9 @@
       <form method="POST" action="/people/edit-party">
         <input type="hidden" name="crumb" value="{{crumb}}"/>
         <input type="hidden" name="userid" value="{{user.id}}"/>
+        <input type="hidden" name="code" value="{{user.code}}"/>
         
-        <h1 class="govuk-heading-l">Edit party: {{user.name}}</h1>
+        <h1 class="govuk-heading-l">Edit party: {{user.name | title}}</h1>
         {% if message %}
           <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
             <h2 class="govuk-error-summary__title" id="error-summary-title">

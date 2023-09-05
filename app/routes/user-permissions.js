@@ -12,7 +12,8 @@ module.exports = [{
   handler: (request, h) => {
     const user = {
       name: request.query.user,
-      id: request.query.id
+      id: request.query.id,
+      code: request.query.code
     }
     return h.view('user-permissions', user)
   }
