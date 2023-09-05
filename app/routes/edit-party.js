@@ -11,7 +11,8 @@ module.exports = [{
   handler: (request, h) => {
     const user = {
       name: request.query.user,
-      id: request.query.id
+      id: request.query.id,
+      code: request.query.code
     }
     return h.view('edit-party', { user })
   }
@@ -24,7 +25,8 @@ module.exports = [{
       payload: Joi.object({
         firstName: Joi.string().required(),
         lastName: Joi.string().required(),
-        userid: Joi.string().required()
+        userid: Joi.string().required(),
+        code: Joi.string().required()
       }),
       failAction: async (request, h, _error) => {
         return h.view('edit-party', {
@@ -34,21 +36,20 @@ module.exports = [{
     }
   },
   handler: async (request, h) => {
-    try {
-      await Wreck.put(`${serverConfig.abacoEndpoint}/party-registry/master/api-priv/v1/parties/${request.payload.userid}`,
-        {
-          headers: {
-            authorization: `Bearer ${request.state.tcg_auth_token}`
-          },
-          payload: {
-            firstName: request.payload.firstName,
-            lastName: request.payload.lastName
-          }
-        })
-      return h.redirect('/people')
-    } catch (err) {
-      throw new Error()
-    }
+    await Wreck.put(`${serverConfig.abacoEndpoint}/party-registry/master/api-priv/v1/parties/${request.payload.userid}`,
+      {
+        headers: {
+          authorization: `Bearer ${request.state.tcg_auth_token}`
+        },
+        payload: {
+          firstName: request.payload.firstName,
+          lastName: request.payload.lastName,
+          partyType: 'N',
+          code: request.payload.code
+        },
+        rejectUnauthorized: false
+      })
+    return h.redirect('/people')
   }
 }
 ]
