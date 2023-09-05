@@ -1,0 +1,79 @@
+{% extends '_layout.njk' %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/home"
+    },
+    {
+      text: "Business hub",
+      href: "/business-hub"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <span class="govuk-caption-xl">Hill Farm</span>
+          <h1 class="govuk-heading-xl">View funding you are eligible for</h1>
+          <p class="govuk-body">You can view and apply for the funding options your farm is eligible for.</p>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row govuk-!-margin-top-6">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l">Sustainable Farming Incentive</h2>
+        </div>
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-box">
+            <h3 class="govuk-heading-m">Apply for SFI</h3>
+            <p class="govuk-body">
+              <a href="/apply?scheme=sfi" class="govuk-link">View and apply for SFI options</a>
+            </p>
+            <p class="govuk-body">Find out more about the agreement and application process by going to the <a href="#" class="govuk-link">Sustainable Farming Incentive guidance</a>page.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row govuk-!-margin-top-6">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l">Basic Payment Scheme</h2>
+        </div>
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-box">
+            <h3 class="govuk-heading-m">Apply for BPS</h3>
+            <p class="govuk-body">
+              <a href="/apply?scheme=bps" class="govuk-link">View and apply for Basic Payment Scheme</a>
+            </p>
+            <p class="govuk-body">Find out more about the agreement and application process by going to the <a href="#" class="govuk-link">Basic Payment Scheme guidance</a>page.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row govuk-!-margin-top-6">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l">Countryside Stewardship</h2>
+        </div>
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-box">
+            <h3 class="govuk-heading-m">Apply for Countryside Stewardship</h3>
+            <p class="govuk-body">
+              <a href="/apply?scheme=cs" class="govuk-link">View and apply for Countryside Stewardship standards</a>
+            </p>
+            <p class="govuk-body">Find out more about the agreement and application process by going to the <a href="#" class="govuk-link">Countryside Stewardship guidance</a>page.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

@@ -36,6 +36,9 @@ container:
   abacoEndpoint: https://ffc-iacs-agri
   useAbacoStub: false
   stubEndpoint: http://ffc-tcg-abaco-agri-stub
+  sfiApplyHost: ffc-tcg-apply
+  bpsApplyHost: ffc-tcg-apply
+  csApplyHost: ffc-tcg-apply
 
 livenessProbe:
   path: /healthz

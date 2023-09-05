@@ -11,7 +11,9 @@ const routes = [].concat(
   require('../routes/people'),
   require('../routes/user-permissions'),
   require('../routes/add-new-party'),
-  require('../routes/edit-party')
+  require('../routes/edit-party'),
+  require('../routes/grants-and-payments'),
+  require('../routes/apply')
 )
 
 module.exports = {
