@@ -18,4 +18,18 @@ data:
   BPS_APPLY_URL: https://{{ .Values.container.bpsApplyHost }}.{{ .Values.ingress.server }}
   CS_APPLY_URL: https://{{ .Values.container.csApplyHost }}.{{ .Values.ingress.server }}
   ENVIRONMENT_CODE: {{.Values.environmentCode}}
+  {{- if not .Values.container.useAbacoStub }}
+  {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
+  ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}-{{ .Values.environmentCode }}.{{ .Values.ingress.server }}
+  {{ else }}
+  ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}.{{ .Values.ingress.server }}
+  {{- end }}
+  {{ else }}
+  {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
+  ABACO_ENDPOINT: {{ .Values.container.stubEndpoint }}.{{ .Values.workstream }}-{{ .Values.environmentCode }}
+  {{ else }}
+  ABACO_ENDPOINT: {{ .Values.container.stubEndpoint }}.{{ .Values.workstream }}
+  {{- end }}
+  {{- end }}
+
 {{- end -}}

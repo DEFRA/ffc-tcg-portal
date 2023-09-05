@@ -1,0 +1,76 @@
+{% extends '_layout.njk' %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+
+{% block beforeContent %}
+  {{ super() }}
+   {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/home"
+    },
+    {
+      text: "Business hub",
+      href: "/business-hub"
+    },
+    {
+      text: "People and permissions",
+      href: "/people"
+    },
+    {
+      text: "Edit party"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="POST" action="/people/edit-party">
+        <input type="hidden" name="crumb" value="{{crumb}}"/>
+        <input type="hidden" name="userid" value="{{user.id}}"/>
+        <input type="hidden" name="code" value="{{user.code}}"/>
+        
+        <h1 class="govuk-heading-l">Edit party: {{user.name | title}}</h1>
+        {% if message %}
+          <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+              There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <span class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span>
+                  {{ message }}
+                </span>
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class=govuk-form-group>
+          <label class="govuk-label" for="firstName">First name</label>
+          <label class="govuk-label" for="firstName"></label>
+          <input class="govuk-input govuk-input--width-10" id="firstName" name="firstName" type="text">
+        </div>
+        <div class=govuk-form-group>
+          <label class="govuk-label" for="lastName">Last name</label>
+          <label class="govuk-label" for="lastName"></label>
+          <input class="govuk-input govuk-input--width-20" id="lastName" name="lastName" type="lastName">
+        </div>
+
+        {{ govukButton({
+          text: "Submit",
+          attributes: {
+            id: "submit"
+          }
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
