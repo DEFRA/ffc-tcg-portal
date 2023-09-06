@@ -12,7 +12,7 @@ module.exports = [{
       headers: {
         authorization: `Bearer ${request.state.tcg_auth_token}`
       },
-      agent: Wreck.agents.httpsAllowUnauthorized,
+      allowUnauthorized: true,
       json: true
     })
     console.log(res)
