@@ -12,6 +12,7 @@ module.exports = [{
       headers: {
         authorization: `Bearer ${request.state.tcg_auth_token}`
       },
+      redirects: 100,
       allowUnauthorized: true,
       json: true
     })
