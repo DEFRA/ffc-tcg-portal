@@ -31,5 +31,7 @@ data:
   ABACO_ENDPOINT: {{ .Values.container.stubEndpoint }}.{{ .Values.workstream }}
   {{- end }}
   {{- end }}
-
+  {{- if (eq (.Values.environmentCode | toString ) "snd") }}
+  NODE_TLS_REJECT_UNAUTHORIZED: "0"
+  {{- end }}
 {{- end -}}
