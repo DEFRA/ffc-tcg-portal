@@ -24,7 +24,7 @@ container:
   requestMemory: 200Mi
   requestCpu: 200m
   limitMemory: 200Mi
-  limitCpu: 200m
+  limitCpu: 500m
   port: 3000
   defraIdEnabled: true
   defraIdWellKnownUrl: not-a-real-url
