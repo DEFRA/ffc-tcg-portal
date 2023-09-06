@@ -12,7 +12,7 @@ module.exports = [{
       headers: {
         authorization: `Bearer ${request.state.tcg_auth_token}`
       },
-      agent: false,
+      agent: Wreck.agents.httpsAllowUnauthorized,
       json: true
     })
     return h.view('people', { people: people.records })
