@@ -9,7 +9,7 @@ services:
     container_name: ffc-tcg-portal-development
     ports:
       - "3000:3000"
-      - "9254:9229"
+      - "9214:9229"
     volumes:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
