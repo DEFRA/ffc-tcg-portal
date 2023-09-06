@@ -34,6 +34,7 @@ container:
   defraIdPolicy: not-a-real-policy
   defraIdRedirectUrl: sign-in-oidc
   abacoEndpoint: https://ffc-iacs-agri
+  sndEndpoint: http://api-gateway.ffc-iacs:10000
   useAbacoStub: false
   stubEndpoint: http://ffc-tcg-abaco-agri-stub
   sfiApplyHost: ffc-tcg-apply

@@ -22,7 +22,7 @@ data:
   {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
   ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}-{{ .Values.environmentCode }}.{{ .Values.ingress.server }}
   {{ else }}
-  ABACO_ENDPOINT: {{ .Values.container.abacoEndpoint }}.{{ .Values.ingress.server }}
+  ABACO_ENDPOINT: {{ .Values.container.sndEndpoint }}
   {{- end }}
   {{ else }}
   {{- if and (.Values.environmentCode) (ne (.Values.environmentCode | toString ) "snd") }}
