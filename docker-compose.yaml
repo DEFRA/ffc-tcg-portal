@@ -16,6 +16,8 @@ services:
       DEFRA_ID_SERVICE_ID: ${DEFRA_ID_SERVICE_ID}
       DEFRA_ID_POLICY: ${DEFRA_ID_POLICY}
       DEFRA_ID_REDIRECT_URL: ${DEFRA_ID_REDIRECT_URL:-http://localhost:3000/sign-in-oidc}
+      DEV_AUTH_PRIVATE_KEY: ${DEV_AUTH_PRIVATE_KEY}
+      DEV_AUTH_PUBLIC_KEY: ${DEV_AUTH_PUBLIC_KEY}
       ABACO_ENDPOINT: ${ABACO_ENDPOINT:-http://ffc-tcg-abaco-agri-stub:3052}
       SFI_APPLY_URL: http://localhost:3055
       BPS_APPLY_URL: http://localhost:3055
