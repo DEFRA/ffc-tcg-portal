@@ -1,6 +1,6 @@
 {
   "name": "ffc-tcg-portal",
-  "version": "0.10.15",
+  "version": "0.10.16",
   "description": "FFC TCG Portal",
   "homepage": "https://github.com/DEFRA/ffc-tcg-portal",
   "main": "app/index.js",

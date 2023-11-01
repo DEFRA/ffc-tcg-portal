@@ -33,6 +33,8 @@ container:
   defraIdServiceId: not-a-real-serviceID
   defraIdPolicy: not-a-real-policy
   defraIdRedirectUrl: sign-in-oidc
+  devAuthPrivateKey:
+  devAuthPublicKey:
   abacoEndpoint: https://ffc-iacs-agri
   sndEndpoint: http://api-gateway.ffc-iacs:10000
   useAbacoStub: false
