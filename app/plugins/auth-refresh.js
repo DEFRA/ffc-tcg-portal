@@ -24,6 +24,7 @@ module.exports = {
 
         const response = await refreshAccessToken(request.state[AUTH_REFRESH_COOKIE_NAME])
         h.state(AUTH_COOKIE_NAME, response.access_token, authConfig.cookieOptions)
+        h.state(AUTH_REFRESH_COOKIE_NAME, response.refresh_token, authConfig.cookieOptions)
         return h.continue
       })
     }
